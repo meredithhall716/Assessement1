@@ -34,8 +34,7 @@ def optimal_change(item_cost, amount_paid):
                 else:
                     break
         
-        # print(change) = something like [100, 100, 100, 10, 1, 1, 1, 1, 1, 1, 1, 1].
-        # print(change)
+        # print(change) = something like [100, 100, 100, 10, 1, 1, 1, 1, 1, 1, 1, 1]
         
         pennies = {
             '$100 bill': 10000,
@@ -49,7 +48,6 @@ def optimal_change(item_cost, amount_paid):
             'nickel': 5,           
             'penny': 1
         }
-        # print(pennies)
 
         # loop through the change list and the pennies dictionary to match the correct change with the correct string.
         for i in change:
@@ -72,20 +70,9 @@ def optimal_change(item_cost, amount_paid):
             else:
                 output = output + f'and {value} {key}.'
 
-        # new_output = []
+        #split the output string to account for pennys and change to pennies   
         split = output.split()
-        # for i in split:
-        #     if i == 'pennys':
-        #         new_output.append(i.replace('penny', 'pennies'))
-        # print(new_output)
-
-        # print(split)
-        res = [item.replace('penny', 'pennies') for item in split]
-        print(res)
+        new_output = [item.replace('pennys', 'pennies') for item in split]
         
-    print(output)
-  
-optimal_change(56.82, 60)
-# "The optimal change for an item that costs $75.75 with an amount paid of $100 is 1 $20 bill, 4 $1 bills, and 1 quarter."
-# "The optimal change for an item that costs $56.82 with an amount paid of $60 is 3 $1 bills, 1 dime, and 8 pennies"
-
+        
+    return(' '.join(new_output))
